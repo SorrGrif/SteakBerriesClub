@@ -1,10 +1,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="@dimen/PagerItemHeight"
     tools:context="comsorrgrif.github.steakberriesclub.ViewPagerContentFragment"
     android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/topandbottomborder"
+    android:padding="5dp">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -15,12 +17,15 @@
         android:id="@+id/Food"
         android:fontFamily="sans-serif"
         android:textSize="18sp"
-        android:textStyle="normal|bold" />
+        android:textStyle="normal|bold"
+        android:textColor="?android:attr/textColorPrimary" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/rawarrow"
+        android:id="@+id/BackgroudLayout">
 
         <LinearLayout
             android:orientation="vertical"
@@ -33,7 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/DescriptionLabel"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"
+                android:textColor="?android:attr/textColorPrimary" />
 
             <TextView
                 android:text="@string/PlaceholderText"
@@ -42,7 +48,8 @@
                 android:id="@+id/Description"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:textColor="?android:attr/textColorPrimary" />
 
         </LinearLayout>
 
@@ -69,7 +76,8 @@
                         android:id="@+id/NameLabel"
                         android:fontFamily="sans-serif"
                         android:textSize="14sp"
-                        android:textStyle="normal|bold" />
+                        android:textStyle="normal|bold"
+                        android:textColor="?android:attr/textColorPrimary" />
                 </TableRow>
 
                 <TableRow
@@ -84,7 +92,8 @@
                         android:id="@+id/ValueLabel"
                         android:fontFamily="sans-serif"
                         android:textSize="14sp"
-                        android:textStyle="normal|bold" />
+                        android:textStyle="normal|bold"
+                        android:textColor="?android:attr/textColorPrimary" />
                 </TableRow>
 
                 <TableRow
@@ -99,7 +108,8 @@
                         android:id="@+id/RegenValueLabel"
                         android:fontFamily="sans-serif"
                         android:textSize="14sp"
-                        android:textStyle="normal|bold" />
+                        android:textStyle="normal|bold"
+                        android:textColor="?android:attr/textColorPrimary" />
                 </TableRow>
 
                 <TableRow
@@ -114,7 +124,8 @@
                         android:id="@+id/WeightLabel"
                         android:fontFamily="sans-serif"
                         android:textSize="14sp"
-                        android:textStyle="normal|bold" />
+                        android:textStyle="normal|bold"
+                        android:textColor="?android:attr/textColorPrimary" />
                 </TableRow>
             </TableLayout>
 
@@ -134,7 +145,8 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/NameValue"
                         android:fontFamily="sans-serif"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textColor="?android:attr/textColorPrimary" />
                 </TableRow>
 
                 <TableRow
@@ -148,7 +160,8 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/ValueValue"
                         android:fontFamily="sans-serif"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textColor="?android:attr/textColorPrimary" />
                 </TableRow>
 
                 <TableRow
@@ -162,7 +175,8 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/RegenValueValue"
                         android:fontFamily="sans-serif"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textColor="?android:attr/textColorPrimary" />
                 </TableRow>
 
                 <TableRow
@@ -176,7 +190,8 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/WeightValue"
                         android:fontFamily="sans-serif"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textColor="?android:attr/textColorPrimary" />
                 </TableRow>
             </TableLayout>
         </LinearLayout>

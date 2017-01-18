@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -28,6 +29,7 @@ public class ViewPagerContentFragment extends Fragment {
     private static final String ARG_PARAM3 = "param3";
     private static final String ARG_PARAM4 = "param4";
     private static final String ARG_PARAM5 = "param5";
+    private static final String ARG_PARAM6 = "param6";
 
     // TODO: Rename and change types of parameters
     private String foodString;
@@ -42,6 +44,10 @@ public class ViewPagerContentFragment extends Fragment {
     TextView value;
     TextView regenValue;
     TextView weight;
+
+    LinearLayout backgroundLayout;
+
+    Boolean isRaw;
 
 
     private OnFragmentInteractionListener mListener;
@@ -63,7 +69,8 @@ public class ViewPagerContentFragment extends Fragment {
                                                        int param2,
                                                        int param3,
                                                        String param4,
-                                                       int param5) {
+                                                       int param5,
+                                                       String param6) {
         ViewPagerContentFragment fragment = new ViewPagerContentFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
@@ -71,6 +78,7 @@ public class ViewPagerContentFragment extends Fragment {
         args.putInt(ARG_PARAM3, param3);
         args.putString(ARG_PARAM4, param4);
         args.putInt(ARG_PARAM5, param5);
+        args.putString(ARG_PARAM6, param6);
         fragment.setArguments(args);
         return fragment;
     }
@@ -84,6 +92,15 @@ public class ViewPagerContentFragment extends Fragment {
             valueString = getArguments().getInt(ARG_PARAM3);
             descriptionString = getArguments().getString(ARG_PARAM4);
             regenValueString = getArguments().getInt(ARG_PARAM5);
+            regenValueString = getArguments().getInt(ARG_PARAM5);
+            if(getArguments().getString(ARG_PARAM6).equals("raw"))
+            {
+                isRaw = true;
+            }
+            else
+            {
+                isRaw = false;
+            }
         }
     }
 
@@ -106,6 +123,11 @@ public class ViewPagerContentFragment extends Fragment {
         value.setText(valueString + "");
         regenValue.setText(regenValueString + "");
         weight.setText(weightString + "");
+
+        backgroundLayout = (LinearLayout) view.findViewById(R.id.BackgroudLayout);
+
+        if(isRaw) backgroundLayout.setBackgroundResource(R.drawable.rawarrow);
+        else backgroundLayout.setBackgroundResource(R.drawable.cookedarrow);
 
         return view;
     }

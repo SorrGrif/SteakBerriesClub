@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:id="@+id/VenisonPager"
             android:layout_weight="1"
-            android:layout_height="@dimen/PagerHeight">
+            android:layout_height="@dimen/PagerItemHeight">
 
         </android.support.v4.view.ViewPager>
 
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:id="@+id/BerriesPager"
-            android:layout_height="@dimen/PagerHeight">
+            android:layout_height="@dimen/PagerItemHeight">
 
         </android.support.v4.view.ViewPager>
 
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:id="@+id/GarbagePager"
-            android:layout_height="@dimen/PagerHeight">
+            android:layout_height="@dimen/PagerItemHeight">
 
         </android.support.v4.view.ViewPager>
 
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:id="@+id/NoodlePager"
-            android:layout_height="@dimen/PagerHeight">
+            android:layout_height="@dimen/PagerItemHeight">
 
         </android.support.v4.view.ViewPager>
 
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:id="@+id/ApplePager"
-            android:layout_height="@dimen/PagerHeight">
+            android:layout_height="@dimen/PagerItemHeight">
 
         </android.support.v4.view.ViewPager>
 
@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:id="@+id/BeefPager"
-            android:layout_height="@dimen/PagerHeight">
+            android:layout_height="@dimen/PagerItemHeight">
 
         </android.support.v4.view.ViewPager>
 
@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:id="@+id/EggPager"
-            android:layout_height="@dimen/PagerHeight">
+            android:layout_height="@dimen/PagerItemHeight">
 
         </android.support.v4.view.ViewPager>
 
@@ -73,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:id="@+id/MomsSpaghettiPager"
-            android:layout_height="@dimen/PagerHeight">
+            android:layout_height="@dimen/PagerItemHeight">
 
         </android.support.v4.view.ViewPager>
 
@@ -83,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:id="@+id/RawBaconPager"
-            android:layout_height="@dimen/PagerHeight">
+            android:layout_height="@dimen/PagerItemHeight">
 
         </android.support.v4.view.ViewPager>
 
@@ -91,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:id="@+id/FrozenTVDinnerPager"
-            android:layout_height="@dimen/PagerHeight">
+            android:layout_height="@dimen/PagerItemHeight">
 
         </android.support.v4.view.ViewPager>
 
@@ -100,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:id="@+id/RoadkillPager"
-            android:layout_height="@dimen/PagerHeight">
+            android:layout_height="@dimen/PagerItemHeight">
 
         </android.support.v4.view.ViewPager>
 

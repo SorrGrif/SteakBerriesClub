@@ -31,18 +31,8 @@ public class RawFoodFragment extends Fragment {
     private String mParam2;
 
     private SectionPagerAdapter pagerAdapter;
-
     private ViewPager viewPager;
-    private ViewPager berriesPager;
-    private ViewPager garbagePager;
-    private ViewPager noodlesPager;
-    private ViewPager applePager;
-    private ViewPager beefPager;
-    private ViewPager eggPager;
-    private ViewPager momsSpaghettiPager;
-    private ViewPager rawBaconPager;
-    private ViewPager frozenTVDinnerPager;
-    private ViewPager roadkillPager;
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -212,102 +202,102 @@ public class RawFoodFragment extends Fragment {
                     switch (position)
                     {
                         case 1:
-                            return ViewPagerContentFragment.newInstance("Venison", 2, 5, "raw piece of venison", 5);
+                            return ViewPagerContentFragment.newInstance("Venison", 2, 5, "raw piece of venison", 5, "raw");
                         case 0:
-                            return ViewPagerContentFragment.newInstance("Steak", 2, 10, "Venison steak, cooked to perfection", 10);
+                            return ViewPagerContentFragment.newInstance("Steak", 2, 10, "Venison steak, cooked to perfection", 10, "cooked");
                     }
 
                 case "berries":
                     switch (position)
                     {
                         case 1:
-                            return ViewPagerContentFragment.newInstance("Berries", 2, 5, "Looks like it might be blueberries", 5);
+                            return ViewPagerContentFragment.newInstance("Berries", 2, 5, "Looks like it might be blueberries", 5, "raw");
                         case 0:
-                            return ViewPagerContentFragment.newInstance("Jelly", 3, 10, "Blue Jelly, hope its not poisonous", 10);
+                            return ViewPagerContentFragment.newInstance("Jelly", 3, 10, "Blue Jelly, hope its not poisonous", 10, "cooked");
                     }
 
                 case "garbage":
                     switch (position)
                     {
                         case 1:
-                            return ViewPagerContentFragment.newInstance("Garbage", 2, -4, "A pile of trash, looks yummy!", -1);
+                            return ViewPagerContentFragment.newInstance("Garbage", 2, -4, "A pile of trash, looks yummy!", -1, "raw");
                         case 0:
-                            return ViewPagerContentFragment.newInstance("Flaming Garbage", 1, -6, "That yummy trash from before, now with extra flames!", -5);
+                            return ViewPagerContentFragment.newInstance("Flaming Garbage", 1, -6, "That yummy trash from before, now with extra flames!", -5, "cooked");
                     }
 
                 case "apple":
                     switch (position)
                     {
                         case 1:
-                            return ViewPagerContentFragment.newInstance("Apple", 2, 3, "An apple a day...", 5);
+                            return ViewPagerContentFragment.newInstance("Apple", 2, 3, "An apple a day...", 5, "raw");
                         case 0:
-                            return ViewPagerContentFragment.newInstance("Apple Crisp", 5, 10, "Delicious apple crisp!", 15);
+                            return ViewPagerContentFragment.newInstance("Apple Crisp", 5, 10, "Delicious apple crisp!", 15, "cooked");
                     }
 
                 case "beef":
                     switch (position)
                     {
                         case 1:
-                            return ViewPagerContentFragment.newInstance("Beef", 2, 5, "Looks like it might be some beef", 5);
+                            return ViewPagerContentFragment.newInstance("Beef", 2, 5, "Looks like it might be some beef", 5, "raw");
                         case 0:
-                            return ViewPagerContentFragment.newInstance("Beef", 4, 15, "mmm...Looks Delicious", 10);
+                            return ViewPagerContentFragment.newInstance("Beef", 4, 15, "mmm...Looks Delicious", 10, "cooked");
                     }
 
                 case "egg":
                     switch (position)
                     {
                         case 1:
-                            return ViewPagerContentFragment.newInstance("Egg", 2, 3, "Raw egg, doesn't look rotten.", 3);
+                            return ViewPagerContentFragment.newInstance("Egg", 2, 3, "Raw egg, doesn't look rotten.", 3, "raw");
                         case 0:
-                            return ViewPagerContentFragment.newInstance("Boiled Egg", 2, 5, "A boiled egg.", 5);
+                            return ViewPagerContentFragment.newInstance("Boiled Egg", 2, 5, "A boiled egg.", 5, "cooked");
                     }
 
                 case "momsSpaghetti":
                     switch (position)
                     {
                         case 1:
-                            return ViewPagerContentFragment.newInstance("Mom's Spaghetti", 40, 1, "It's Mom's Spaghetti! Knees weak arms are heavy! Never forgetti!", 10);
+                            return ViewPagerContentFragment.newInstance("Mom's Spaghetti", 40, 1, "It's Mom's Spaghetti! Knees weak arms are heavy! Never forgetti!", 10, "raw");
                         case 0:
-                            return ViewPagerContentFragment.newInstance("Mom's Refried Spaghetti", 5, 10, "It's still Mom's Spaghetti, but refried! Never forgetti!", 11);
+                            return ViewPagerContentFragment.newInstance("Mom's Refried Spaghetti", 5, 10, "It's still Mom's Spaghetti, but refried! Never forgetti!", 11, "cooked");
                     }
 
                 case "rawBacon":
                     switch (position)
                     {
                         case 1:
-                            return ViewPagerContentFragment.newInstance("Raw Bacon", 10, 10, "a bunch of Raw Bacon", 8);
+                            return ViewPagerContentFragment.newInstance("Raw Bacon", 10, 10, "a bunch of Raw Bacon", 8, "raw");
                         case 0:
-                            return ViewPagerContentFragment.newInstance("Cooked Bacon", 10, 15, "a bunch of Cooked Bacon", 20);
+                            return ViewPagerContentFragment.newInstance("Cooked Bacon", 10, 15, "a bunch of Cooked Bacon", 20, "cooked");
                     }
 
                 case "frozenTVDinner":
                     switch (position)
                     {
                         case 1:
-                            return ViewPagerContentFragment.newInstance("Frozen Meal", 3, 4, "A TV dinner. Somehow still frozen.", 5);
+                            return ViewPagerContentFragment.newInstance("Frozen Meal", 3, 4, "A TV dinner. Somehow still frozen.", 5, "raw");
                         case 0:
-                            return ViewPagerContentFragment.newInstance("TV Dinner - Cooked", 3, 5, "A TV dinner that you have cooked.", 10);
+                            return ViewPagerContentFragment.newInstance("TV Dinner - Cooked", 3, 5, "A TV dinner that you have cooked.", 10, "cooked");
                     }
 
                 case "roadkill":
                     switch (position)
                     {
                         case 1:
-                            return ViewPagerContentFragment.newInstance("Roadkill", 2, 5, "A piece of roadkill. It is covered in a gross slime.", 5);
+                            return ViewPagerContentFragment.newInstance("Roadkill", 2, 5, "A piece of roadkill. It is covered in a gross slime.", 5, "raw");
                         case 0:
-                            return ViewPagerContentFragment.newInstance("Extra dead roadkill", 2, 10, "A less slimy, more dead version of the roadkill you had before.", 10);
+                            return ViewPagerContentFragment.newInstance("Extra dead roadkill", 2, 10, "A less slimy, more dead version of the roadkill you had before.", 10, "cooked");
                     }
 
                 case "chicken":
                     switch (position)
                     {
                         case 1:
-                            return ViewPagerContentFragment.newInstance("Raw Chicken", 2, 5, "Uncooked slimey Chicken!", 10);
+                            return ViewPagerContentFragment.newInstance("Raw Chicken", 2, 5, "Uncooked slimey Chicken!", 10, "raw");
                         case 0:
-                            return ViewPagerContentFragment.newInstance("Some oily KFC", 2, 10, "KFC, deep fried to perfection!", 10);
+                            return ViewPagerContentFragment.newInstance("Some oily KFC", 2, 10, "KFC, deep fried to perfection!", 10, "cooked");
                     }
 
-                default: return ViewPagerContentFragment.newInstance("Berries", 2, 5, "Looks like it might be blueberries", 5);
+                default: return ViewPagerContentFragment.newInstance("Berries", 2, 5, "Looks like it might be blueberries", 5, "raw");
             }
         }
 
