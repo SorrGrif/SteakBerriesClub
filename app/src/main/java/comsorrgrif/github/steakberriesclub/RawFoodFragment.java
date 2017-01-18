@@ -4,6 +4,9 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +29,20 @@ public class RawFoodFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private SectionPagerAdapter pagerAdapter;
+
+    private ViewPager viewPager;
+    private ViewPager berriesPager;
+    private ViewPager garbagePager;
+    private ViewPager noodlesPager;
+    private ViewPager applePager;
+    private ViewPager beefPager;
+    private ViewPager eggPager;
+    private ViewPager momsSpaghettiPager;
+    private ViewPager rawBaconPager;
+    private ViewPager frozenTVDinnerPager;
+    private ViewPager roadkillPager;
 
     private OnFragmentInteractionListener mListener;
 
@@ -64,7 +81,80 @@ public class RawFoodFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_raw_food, container, false);
+        View view = inflater.inflate(R.layout.fragment_raw_food, container, false);
+
+        viewPager = (ViewPager) view.findViewById(R.id.VenisonPager);
+        setAdapter(viewPager, "venison");
+
+        viewPager = (ViewPager) view.findViewById(R.id.BerriesPager);
+        setAdapter(viewPager, "berries");
+
+        viewPager = (ViewPager) view.findViewById(R.id.GarbagePager);
+        setAdapter(viewPager, "garbage");
+
+        viewPager = (ViewPager) view.findViewById(R.id.NoodlePager);
+        setAdapter(viewPager, "noodle");
+
+        viewPager = (ViewPager) view.findViewById(R.id.ApplePager);
+        setAdapter(viewPager, "apple");
+
+        viewPager = (ViewPager) view.findViewById(R.id.BeefPager);
+        setAdapter(viewPager, "beef");
+
+        viewPager = (ViewPager) view.findViewById(R.id.EggPager);
+        setAdapter(viewPager, "egg");
+
+        viewPager = (ViewPager) view.findViewById(R.id.MomsSpaghettiPager);
+        setAdapter(viewPager, "momsSpaghetti");
+
+        viewPager = (ViewPager) view.findViewById(R.id.RawBaconPager);
+        setAdapter(viewPager, "rawBacon");
+
+        viewPager = (ViewPager) view.findViewById(R.id.FrozenTVDinnerPager);
+        setAdapter(viewPager, "frozenTVDinner");
+
+        viewPager = (ViewPager) view.findViewById(R.id.RoadkillPager);
+        setAdapter(viewPager, "roadkill");
+
+
+//        berriesPager = (ViewPager) view.findViewById(R.id.BerriesPager);
+//        garbagePager = (ViewPager) view.findViewById(R.id.GarbagePager);
+//        noodlesPager = (ViewPager) view.findViewById(R.id.NoodlePager);
+//        applePager = (ViewPager) view.findViewById(R.id.ApplePager);
+//        beefPager = (ViewPager) view.findViewById(R.id.BeefPager);
+//        eggPager = (ViewPager) view.findViewById(R.id.EggPager);
+//        momsSpaghettiPager = (ViewPager) view.findViewById(R.id.MomsSpaghettiPager);
+//        rawBaconPager = (ViewPager) view.findViewById(R.id.RawBaconPager);
+//        frozenTVDinnerPager = (ViewPager) view.findViewById(R.id.FrozenTVDinnerPager);
+//        roadkillPager = (ViewPager) view.findViewById(R.id.RoadkillPager);
+
+
+//        berriesPager.setAdapter(berriesAdapter);
+//        garbagePager.setAdapter(garbageAdapter);
+//        noodlesPager.setAdapter(noodlesAdapter);
+//        noodlesPager.setAdapter(noodlesAdapter);
+//        noodlesPager.setAdapter(noodlesAdapter);
+//        noodlesPager.setAdapter(noodlesAdapter);
+//        noodlesPager.setAdapter(noodlesAdapter);
+//        noodlesPager.setAdapter(noodlesAdapter);
+//        noodlesPager.setAdapter(noodlesAdapter);
+//        noodlesPager.setAdapter(noodlesAdapter);
+
+
+//        berriesPager.setCurrentItem(1);
+//        garbagePager.setCurrentItem(1);
+//        noodlesPager.setCurrentItem(1);
+
+
+
+        return view;
+    }
+
+    private void setAdapter(ViewPager pager, String item)
+    {
+        pagerAdapter = new SectionPagerAdapter(getActivity().getSupportFragmentManager(), item);
+        viewPager.setAdapter(pagerAdapter);
+        viewPager.setCurrentItem(1);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -104,5 +194,129 @@ public class RawFoodFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public class SectionPagerAdapter extends FragmentPagerAdapter {
+        public SectionPagerAdapter(FragmentManager fm, String pager){
+            super(fm);
+            setPager(pager);
+        }
+
+        String pager = "";
+
+        public Fragment getItem(int position)
+        {
+            switch(pager) {
+                case "venison":
+                    //name weight value description regen val
+                    switch (position)
+                    {
+                        case 1:
+                            return ViewPagerContentFragment.newInstance("Venison", 2, 5, "raw piece of venison", 5);
+                        case 0:
+                            return ViewPagerContentFragment.newInstance("Steak", 2, 10, "Venison steak, cooked to perfection", 10);
+                    }
+
+                case "berries":
+                    switch (position)
+                    {
+                        case 1:
+                            return ViewPagerContentFragment.newInstance("Berries", 2, 5, "Looks like it might be blueberries", 5);
+                        case 0:
+                            return ViewPagerContentFragment.newInstance("Jelly", 3, 10, "Blue Jelly, hope its not poisonous", 10);
+                    }
+
+                case "garbage":
+                    switch (position)
+                    {
+                        case 1:
+                            return ViewPagerContentFragment.newInstance("Garbage", 2, -4, "A pile of trash, looks yummy!", -1);
+                        case 0:
+                            return ViewPagerContentFragment.newInstance("Flaming Garbage", 1, -6, "That yummy trash from before, now with extra flames!", -5);
+                    }
+
+                case "apple":
+                    switch (position)
+                    {
+                        case 1:
+                            return ViewPagerContentFragment.newInstance("Apple", 2, 3, "An apple a day...", 5);
+                        case 0:
+                            return ViewPagerContentFragment.newInstance("Apple Crisp", 5, 10, "Delicious apple crisp!", 15);
+                    }
+
+                case "beef":
+                    switch (position)
+                    {
+                        case 1:
+                            return ViewPagerContentFragment.newInstance("Beef", 2, 5, "Looks like it might be some beef", 5);
+                        case 0:
+                            return ViewPagerContentFragment.newInstance("Beef", 4, 15, "mmm...Looks Delicious", 10);
+                    }
+
+                case "egg":
+                    switch (position)
+                    {
+                        case 1:
+                            return ViewPagerContentFragment.newInstance("Egg", 2, 3, "Raw egg, doesn't look rotten.", 3);
+                        case 0:
+                            return ViewPagerContentFragment.newInstance("Boiled Egg", 2, 5, "A boiled egg.", 5);
+                    }
+
+                case "momsSpaghetti":
+                    switch (position)
+                    {
+                        case 1:
+                            return ViewPagerContentFragment.newInstance("Mom's Spaghetti", 40, 1, "It's Mom's Spaghetti! Knees weak arms are heavy! Never forgetti!", 10);
+                        case 0:
+                            return ViewPagerContentFragment.newInstance("Mom's Refried Spaghetti", 5, 10, "It's still Mom's Spaghetti, but refried! Never forgetti!", 11);
+                    }
+
+                case "rawBacon":
+                    switch (position)
+                    {
+                        case 1:
+                            return ViewPagerContentFragment.newInstance("Raw Bacon", 10, 10, "a bunch of Raw Bacon", 8);
+                        case 0:
+                            return ViewPagerContentFragment.newInstance("Cooked Bacon", 10, 15, "a bunch of Cooked Bacon", 20);
+                    }
+
+                case "frozenTVDinner":
+                    switch (position)
+                    {
+                        case 1:
+                            return ViewPagerContentFragment.newInstance("Frozen Meal", 3, 4, "A TV dinner. Somehow still frozen.", 5);
+                        case 0:
+                            return ViewPagerContentFragment.newInstance("TV Dinner - Cooked", 3, 5, "A TV dinner that you have cooked.", 10);
+                    }
+
+                case "roadkill":
+                    switch (position)
+                    {
+                        case 1:
+                            return ViewPagerContentFragment.newInstance("Roadkill", 2, 5, "A piece of roadkill. It is covered in a gross slime.", 5);
+                        case 0:
+                            return ViewPagerContentFragment.newInstance("Extra dead roadkill", 2, 10, "A less slimy, more dead version of the roadkill you had before.", 10);
+                    }
+
+                case "chicken":
+                    switch (position)
+                    {
+                        case 1:
+                            return ViewPagerContentFragment.newInstance("Raw Chicken", 2, 5, "Uncooked slimey Chicken!", 10);
+                        case 0:
+                            return ViewPagerContentFragment.newInstance("Some oily KFC", 2, 10, "KFC, deep fried to perfection!", 10);
+                    }
+
+                default: return ViewPagerContentFragment.newInstance("Berries", 2, 5, "Looks like it might be blueberries", 5);
+            }
+        }
+
+        public void setPager(String pager)
+        {
+            this.pager = pager;
+        }
+        public int getCount(){
+            return 2;
+        }
     }
 }
