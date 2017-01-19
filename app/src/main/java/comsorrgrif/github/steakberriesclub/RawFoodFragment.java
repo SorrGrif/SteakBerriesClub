@@ -106,35 +106,8 @@ public class RawFoodFragment extends Fragment {
         viewPager = (ViewPager) view.findViewById(R.id.RoadkillPager);
         setAdapter(viewPager, "roadkill");
 
-
-//        berriesPager = (ViewPager) view.findViewById(R.id.BerriesPager);
-//        garbagePager = (ViewPager) view.findViewById(R.id.GarbagePager);
-//        noodlesPager = (ViewPager) view.findViewById(R.id.NoodlePager);
-//        applePager = (ViewPager) view.findViewById(R.id.ApplePager);
-//        beefPager = (ViewPager) view.findViewById(R.id.BeefPager);
-//        eggPager = (ViewPager) view.findViewById(R.id.EggPager);
-//        momsSpaghettiPager = (ViewPager) view.findViewById(R.id.MomsSpaghettiPager);
-//        rawBaconPager = (ViewPager) view.findViewById(R.id.RawBaconPager);
-//        frozenTVDinnerPager = (ViewPager) view.findViewById(R.id.FrozenTVDinnerPager);
-//        roadkillPager = (ViewPager) view.findViewById(R.id.RoadkillPager);
-
-
-//        berriesPager.setAdapter(berriesAdapter);
-//        garbagePager.setAdapter(garbageAdapter);
-//        noodlesPager.setAdapter(noodlesAdapter);
-//        noodlesPager.setAdapter(noodlesAdapter);
-//        noodlesPager.setAdapter(noodlesAdapter);
-//        noodlesPager.setAdapter(noodlesAdapter);
-//        noodlesPager.setAdapter(noodlesAdapter);
-//        noodlesPager.setAdapter(noodlesAdapter);
-//        noodlesPager.setAdapter(noodlesAdapter);
-//        noodlesPager.setAdapter(noodlesAdapter);
-
-
-//        berriesPager.setCurrentItem(1);
-//        garbagePager.setCurrentItem(1);
-//        noodlesPager.setCurrentItem(1);
-
+        viewPager = (ViewPager) view.findViewById(R.id.RoadkillPager);
+        setAdapter(viewPager, "chicken");
 
 
         return view;
@@ -303,7 +276,7 @@ public class RawFoodFragment extends Fragment {
                         case 1:
                             return ViewPagerContentFragment.newInstance("Raw Chicken", 2, 5, "Uncooked slimey Chicken!", 10, "raw");
                         case 0:
-                            return ViewPagerContentFragment.newInstance("Some oily KFC", 2, 10, "KFC, deep fried to perfection!", 10, "cooked");
+                            return ViewPagerContentFragment.newInstance("Oily Fried Chicken With Kentucky Based Spices", 2, 10, "Fried Chicken with Kentucky based spices, deep fried to perfection!", 10, "cooked");
                     }
 
                 default: return ViewPagerContentFragment.newInstance("Berries", 2, 5, "Looks like it might be blueberries", 5, "raw");

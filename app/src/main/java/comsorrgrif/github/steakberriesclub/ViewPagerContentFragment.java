@@ -126,8 +126,8 @@ public class ViewPagerContentFragment extends Fragment {
 
         backgroundLayout = (LinearLayout) view.findViewById(R.id.BackgroudLayout);
 
-        if(isRaw) backgroundLayout.setBackgroundResource(R.drawable.rawarrow);
-        else backgroundLayout.setBackgroundResource(R.drawable.cookedarrow);
+        if(isRaw) backgroundLayout.setBackgroundResource(R.drawable.cookedarrow);
+        else backgroundLayout.setBackgroundResource(R.drawable.rawarrow);
 
         return view;
     }
