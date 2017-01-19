@@ -225,6 +225,15 @@ public class RawFoodFragment extends Fragment {
                             return ViewPagerContentFragment.newInstance("Flaming Garbage", 1, -6, "That yummy trash from before, now with extra flames!", -5, "cooked");
                     }
 
+                case "noodle":
+                    switch (position)
+                    {
+                        case 1:
+                            return ViewPagerContentFragment.newInstance("Noodles", 2, 3, "Raw ramen, you feel like a college student", 2, "raw");
+                        case 0:
+                            return ViewPagerContentFragment.newInstance("Cooked Noodles", 1, -2, "Cooked ramen but now with a side of $40,000 in debt!", 5, "cooked");
+                    }
+
                 case "apple":
                     switch (position)
                     {
