@@ -19,7 +19,8 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         RawFoodFragment.OnFragmentInteractionListener,
-        ViewPagerContentFragment.OnFragmentInteractionListener{
+        ViewPagerContentFragment.OnFragmentInteractionListener,
+        BeveragesFragment.OnFragmentInteractionListener{
 
     FragmentManager fm;
     FragmentTransaction ft;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity
 
         fm = getSupportFragmentManager();
         ft = fm.beginTransaction();
-        ft.replace(R.id.MainFrame, new RawFoodFragment());
+        ft.replace(R.id.MainFrame, new BeveragesFragment());
         ft.commit();
     }
 

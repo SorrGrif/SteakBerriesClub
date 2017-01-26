@@ -5,22 +5,25 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link BeveragesFragment.OnFragmentInteractionListener} interface
+ * {@link ViewPagerFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link BeveragesFragment#newInstance} factory method to
+ * Use the {@link ViewPagerFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BeveragesFragment extends Fragment {
+public class ViewPagerFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,12 +33,12 @@ public class BeveragesFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    FragmentManager fm;
-    FragmentTransaction ft;
-
     private OnFragmentInteractionListener mListener;
+    
+    ViewPager viewPager;
+    ViewPagerAdapter pagerAdapter;
 
-    public BeveragesFragment() {
+    public ViewPagerFragment() {
         // Required empty public constructor
     }
 
@@ -45,11 +48,11 @@ public class BeveragesFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment BeveragesFragment.
+     * @return A new instance of fragment ViewPagerFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static BeveragesFragment newInstance(String param1, String param2) {
-        BeveragesFragment fragment = new BeveragesFragment();
+    public static ViewPagerFragment newInstance(String param1, String param2) {
+        ViewPagerFragment fragment = new ViewPagerFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -70,27 +73,56 @@ public class BeveragesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_beverages, container, false);
+        View view = inflater.inflate(R.layout.fragment_view_pager, container, false);
+        //TextView d = (TextView) view.findViewById(R.id.textView3);
+        //d.setText("heloo");
+        //viewPager = (ViewPager) view.findViewById(R.id.MainPager);
+        //setAdapter("venison");
 
-        fm = getActivity().getSupportFragmentManager();
-        ft = fm.beginTransaction();
+//        setAdapter( "venison");
+//
+//
+//        setAdapter( "berries");
+//
+//
+//        setAdapter( "garbage");
+//
+//
+//        setAdapter( "noodle");
+//
+//
+//        setAdapter( "apple");
+//
+//
+//        setAdapter( "beef");
+//
+//
+//        setAdapter( "egg");
+//
+//
+//        setAdapter( "momsSpaghetti");
+//
+//
+//        setAdapter( "rawBacon");
+//
+//
+//        setAdapter( "frozenTVDinner");
+//
+//
+//        setAdapter("roadkill");
+//
+//
+//        setAdapter( "chicken");
 
-        ft.replace(R.id.AppleJuiceLayout, ViewPagerContentFragment.newInstance("Juice", 2, 10, "a juice box ", 10, "beverage"));
-        ft.commit();
-        ft = fm.beginTransaction();
-        ft.replace(R.id.DeerUrineLayout, ViewPagerContentFragment.newInstance("Deer Urine", 2, 5, "A bottle of Deer urine you harvested from a dead deer's bladder. It is slightly fermented.", 5, "beverage"));
-        ft.commit();
-        ft = fm.beginTransaction();
-        ft.replace(R.id.MoonshineLayout, ViewPagerContentFragment.newInstance("Moonshine", 2, 10, "It looks like moonshine", 10, "beverage"));
-        ft.commit();
-        ft = fm.beginTransaction();
-        ft.replace(R.id.MountainDewLayout, ViewPagerContentFragment.newInstance("Mountain Dew", 4, 10, "Mountain Dew baby!", 3, "beverage"));
-        ft.commit();
-        ft = fm.beginTransaction();
-        ft.replace(R.id.RiverWaterLayout, ViewPagerContentFragment.newInstance("River Water", 2, 5, "Some water you found in a river.", 10, "beverage"));
-        ft.commit();
 
         return view;
+    }
+
+    public void setAdapter(String item)
+    {
+        pagerAdapter = new ViewPagerAdapter(getChildFragmentManager(), item);
+        viewPager.setAdapter(pagerAdapter);
+        viewPager.setCurrentItem(1);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -131,4 +163,6 @@ public class BeveragesFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
 }
