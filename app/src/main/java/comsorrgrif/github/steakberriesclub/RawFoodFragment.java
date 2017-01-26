@@ -73,7 +73,11 @@ public class RawFoodFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_raw_food, container, false);
 
+        //instead of making a bunch of viewpager objects, instead,
+        //make 1 pager object and overwrite the object with the next
+        //pager needed
         viewPager = (ViewPager) view.findViewById(R.id.VenisonPager);
+        //run the set adapter method with the viewpager and type of food being passed
         setAdapter(viewPager, "venison");
 
         viewPager = (ViewPager) view.findViewById(R.id.BerriesPager);
@@ -115,8 +119,11 @@ public class RawFoodFragment extends Fragment {
 
     private void setAdapter(ViewPager pager, String item)
     {
+        //create a new section pager adapter by overwriting the old one
         pagerAdapter = new SectionPagerAdapter(getChildFragmentManager(), item);
+        //set the adapter
         viewPager.setAdapter(pagerAdapter);
+        //set the current item to the "raw" item
         viewPager.setCurrentItem(1);
     }
 
@@ -159,19 +166,28 @@ public class RawFoodFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
+    /**
+     * this is used to set each food item to the pager with the
+     * raw food and cooked food in each item
+     */
     public class SectionPagerAdapter extends FragmentPagerAdapter {
+        //create a custom constructor that takes in the pager name as well
         public SectionPagerAdapter(FragmentManager fm, String pager){
             super(fm);
+            //set the pager
             setPager(pager);
         }
 
         String pager = "";
 
+        //this is where the magic happens...
         public Fragment getItem(int position)
         {
+            //switch case to find the correct pager you are doing
             switch(pager) {
                 case "venison":
-                    //name weight value description regen val
+                    //once you find the correct viewpager
+                    //switch case through the position to set the correct pagers
                     switch (position)
                     {
                         case 1:

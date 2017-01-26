@@ -105,6 +105,14 @@ public class ViewPagerContentFragment extends Fragment {
         }
     }
 
+    /**
+     * this sets every single textview and description when creating
+     * raw and cooked food
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -127,6 +135,8 @@ public class ViewPagerContentFragment extends Fragment {
 
         backgroundLayout = (LinearLayout) view.findViewById(R.id.BackgroudLayout);
 
+        //currently broken, if the food is cooked set the image to raw arrow pointing to swipe left
+        //if the food is raw set the cooked arrow point to move right
         if(isRaw.equals("raw")) backgroundLayout.setBackgroundResource(R.drawable.cookedarrow);
         else if(isRaw.equals("cooked")) backgroundLayout.setBackgroundResource(R.drawable.rawarrow);
 

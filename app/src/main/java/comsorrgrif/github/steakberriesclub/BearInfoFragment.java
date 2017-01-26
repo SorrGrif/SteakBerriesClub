@@ -73,13 +73,25 @@ public class BearInfoFragment extends Fragment {
         }
     }
 
+    /**
+     * this creates the view
+     * initializes the array list
+     * runs the add items method
+     * and sets the custom adapter
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return view
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_bear_info, container, false);
 
+        //initializing a new arraylist
         infoList = new ArrayList<>();
+        //run this method to add items to the arraylist
         addItems();
 
         bearInfoListView = (ListView) view.findViewById(R.id.InfoListView);
@@ -88,22 +100,28 @@ public class BearInfoFragment extends Fragment {
         return view;
     }
 
+    /**
+     * this adds the corresponding title and description
+     * too the array list so that they can be added to the listview
+     */
     private void addItems()
     {
+        //each title will be added into the array list, along with the corresponding description
         String[] titles = {"Bear Damage",
                 "Bear Size",
                 "Bear Scaryness",
                 "Bear Mortality Rate",
                 "Bear Family"};
-        String[] descritpion = {"Too much for you to handle",
+        String[] description = {"Too much for you to handle",
                 "Bigger than a bear that was exposed to radiation",
                 "You will literally soil your pants when you see this bear",
                 "The bear doesnt die... but you do",
                 "Some say the bear has family... lets hope it doesnt"};
 
+        //iterate through the string arrays adding at an increased index
         for(int i = 0; i < titles.length; i++)
         {
-            infoList.add(i,new BearInfo(titles[i], descritpion[i]));
+            infoList.add(i,new BearInfo(titles[i], description[i]));
         }
 
     }
@@ -147,6 +165,11 @@ public class BearInfoFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
+    /**
+     * this custom adapter gets all the items stored in the info arraylist and
+     * gets the corresponding title and description and sets it to the fragment
+     * and adds it to the listview
+     */
     public class CustomAdapter extends ArrayAdapter<BearInfo> {
 
 

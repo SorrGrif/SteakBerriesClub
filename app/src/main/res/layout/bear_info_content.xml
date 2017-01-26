@@ -5,6 +5,7 @@
     android:background="@drawable/topandbottomborder"
     android:padding="5dp">
 
+    <!-- Basic labeling for each bear info item in the listview -->
     <TextView
         android:text="@string/PlaceholderText"
         android:layout_width="wrap_content"

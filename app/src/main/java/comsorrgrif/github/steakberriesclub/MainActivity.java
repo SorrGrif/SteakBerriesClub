@@ -54,12 +54,11 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-//        fm = getSupportFragmentManager();
-//        ft = fm.beginTransaction();
-//        ft.replace(R.id.MainFrame, new BearInfoFragment());
-//        ft.commit();
+        //intializing the viewpager
         mainPager = (ViewPager) findViewById(R.id.MainPager);
+        //setting the adapter of the viewpager
         mainPager.setAdapter(new SectionPagerAdapter(getSupportFragmentManager()));
+        //setting the current item to the middle of the viewpager
         mainPager.setCurrentItem(1);
     }
 
@@ -101,18 +100,13 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        //instead of making a new fragment just set the current item to the page they want to go to
+        if (id == R.id.nav_food) {
+            mainPager.setCurrentItem(0);
+        } else if (id == R.id.nav_bear_info) {
+            mainPager.setCurrentItem(1);
+        } else if (id == R.id.nav_beverage) {
+            mainPager.setCurrentItem(2);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -125,16 +119,26 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    /**
+     * this section pager adapter is used for the main viewpager that has raw food
+     * bear info
+     * and beverages
+     */
     public class SectionPagerAdapter extends FragmentPagerAdapter {
         public SectionPagerAdapter(FragmentManager fm){
             super(fm);
         }
 
-
+        /**
+         * this sets each page item to the right fragment
+         * @param position
+         * @return
+         */
         public Fragment getItem(int position)
         {
             switch(position)
             {
+                //each case has a corresponding fragment
                 case 0: return RawFoodFragment.newInstance("","");
                 case 1: return BearInfoFragment.newInstance("","");
                 case 2: return BeveragesFragment.newInstance("","");

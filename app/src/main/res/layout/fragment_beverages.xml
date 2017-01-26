@@ -5,11 +5,13 @@
     tools:context="comsorrgrif.github.steakberriesclub.BeveragesFragment">
 
 
+    <!-- This linear layout holds all the framelayouts for each beverages -->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- Each of these frame layouts is a different beverage -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

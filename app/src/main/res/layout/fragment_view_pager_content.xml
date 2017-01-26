@@ -8,8 +8,9 @@
     android:background="@drawable/topandbottomborder"
     android:padding="5dp">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- This is used for each view for the food fragment -->
 
+    <!-- This is the title for the food in question -->
     <TextView
         android:text="@string/PlaceholderText"
         android:layout_width="wrap_content"
@@ -20,12 +21,14 @@
         android:textStyle="normal|bold"
         android:textColor="@color/fontColor" />
 
+    <!-- This is used to put the description and stats next to each other -->
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/BackgroudLayout">
 
+        <!-- this is for the description to have it be displayed up and down -->
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -52,6 +55,7 @@
 
         </LinearLayout>
 
+        <!-- This is used for the stats so it can be displayed up and downwards -->
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"

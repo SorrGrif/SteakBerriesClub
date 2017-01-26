@@ -66,27 +66,43 @@ public class BeveragesFragment extends Fragment {
         }
     }
 
+    /**
+     * this initializes a fragment manager and fragment transaction
+     * each time you commit a transaction you must overwrite the old transaction with a new
+     * fragment manager begin transaction
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_beverages, container, false);
 
+        //initializing the fragment manager and fragment transaction
         fm = getActivity().getSupportFragmentManager();
         ft = fm.beginTransaction();
 
+        //replace the frame layout with each drink item
         ft.replace(R.id.AppleJuiceLayout, ViewPagerContentFragment.newInstance("Juice", 2, 10, "a juice box ", 10, "beverage"));
         ft.commit();
+        //make a new transaction after you commit a previous one
         ft = fm.beginTransaction();
+
         ft.replace(R.id.DeerUrineLayout, ViewPagerContentFragment.newInstance("Deer Urine", 2, 5, "A bottle of Deer urine you harvested from a dead deer's bladder. It is slightly fermented.", 5, "beverage"));
         ft.commit();
         ft = fm.beginTransaction();
+
         ft.replace(R.id.MoonshineLayout, ViewPagerContentFragment.newInstance("Moonshine", 2, 10, "It looks like moonshine", 10, "beverage"));
         ft.commit();
         ft = fm.beginTransaction();
+
         ft.replace(R.id.MountainDewLayout, ViewPagerContentFragment.newInstance("Mountain Dew", 4, 10, "Mountain Dew baby!", 3, "beverage"));
         ft.commit();
         ft = fm.beginTransaction();
+
         ft.replace(R.id.RiverWaterLayout, ViewPagerContentFragment.newInstance("River Water", 2, 5, "Some water you found in a river.", 10, "beverage"));
         ft.commit();
 

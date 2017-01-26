@@ -5,6 +5,7 @@
     tools:context="comsorrgrif.github.steakberriesclub.BearInfoFragment"
     android:orientation="vertical">
 
+    <!-- This list view is used to display various info about the bears in the game -->
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
