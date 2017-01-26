@@ -4,8 +4,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,10 +23,12 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         RawFoodFragment.OnFragmentInteractionListener,
         ViewPagerContentFragment.OnFragmentInteractionListener,
-        BeveragesFragment.OnFragmentInteractionListener{
+        BeveragesFragment.OnFragmentInteractionListener,
+        BearInfoFragment.OnFragmentInteractionListener{
 
     FragmentManager fm;
     FragmentTransaction ft;
+    ViewPager mainPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,10 +54,13 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        fm = getSupportFragmentManager();
-        ft = fm.beginTransaction();
-        ft.replace(R.id.MainFrame, new BeveragesFragment());
-        ft.commit();
+//        fm = getSupportFragmentManager();
+//        ft = fm.beginTransaction();
+//        ft.replace(R.id.MainFrame, new BearInfoFragment());
+//        ft.commit();
+        mainPager = (ViewPager) findViewById(R.id.MainPager);
+        mainPager.setAdapter(new SectionPagerAdapter(getSupportFragmentManager()));
+        mainPager.setCurrentItem(1);
     }
 
     @Override
@@ -115,5 +123,27 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    public class SectionPagerAdapter extends FragmentPagerAdapter {
+        public SectionPagerAdapter(FragmentManager fm){
+            super(fm);
+        }
+
+
+        public Fragment getItem(int position)
+        {
+            switch(position)
+            {
+                case 0: return RawFoodFragment.newInstance("","");
+                case 1: return BearInfoFragment.newInstance("","");
+                case 2: return BeveragesFragment.newInstance("","");
+                default: return RawFoodFragment.newInstance("","");
+            }
+        }
+
+        public int getCount(){
+            return 3;
+        }
     }
 }

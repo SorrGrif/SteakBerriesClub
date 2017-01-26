@@ -115,7 +115,7 @@ public class RawFoodFragment extends Fragment {
 
     private void setAdapter(ViewPager pager, String item)
     {
-        pagerAdapter = new SectionPagerAdapter(getActivity().getSupportFragmentManager(), item);
+        pagerAdapter = new SectionPagerAdapter(getChildFragmentManager(), item);
         viewPager.setAdapter(pagerAdapter);
         viewPager.setCurrentItem(1);
     }

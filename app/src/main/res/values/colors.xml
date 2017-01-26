@@ -5,5 +5,5 @@
     <color name="colorAccent">#ff4081</color>
     <color name='backgroundColor'>#01021c</color>
     <color name='buttonColor'>#efefef</color>
-    <color name='fontColor'>#DFDFDF</color>
+    <color name='fontColor'>#dfdfdf</color>
 </resources>
