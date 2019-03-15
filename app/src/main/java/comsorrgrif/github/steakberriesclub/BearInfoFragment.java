@@ -5,22 +5,29 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link BeveragesFragment.OnFragmentInteractionListener} interface
+ * {@link BearInfoFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link BeveragesFragment#newInstance} factory method to
+ * Use the {@link BearInfoFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BeveragesFragment extends Fragment {
+public class BearInfoFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,12 +37,12 @@ public class BeveragesFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    FragmentManager fm;
-    FragmentTransaction ft;
+    private ListView bearInfoListView;
+    ArrayList<BearInfo> infoList;
 
     private OnFragmentInteractionListener mListener;
 
-    public BeveragesFragment() {
+    public BearInfoFragment() {
         // Required empty public constructor
     }
 
@@ -45,11 +52,11 @@ public class BeveragesFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment BeveragesFragment.
+     * @return A new instance of fragment BearInfoFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static BeveragesFragment newInstance(String param1, String param2) {
-        BeveragesFragment fragment = new BeveragesFragment();
+    public static BearInfoFragment newInstance(String param1, String param2) {
+        BearInfoFragment fragment = new BearInfoFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,46 +74,56 @@ public class BeveragesFragment extends Fragment {
     }
 
     /**
-     * this initializes a fragment manager and fragment transaction
-     * each time you commit a transaction you must overwrite the old transaction with a new
-     * fragment manager begin transaction
+     * this creates the view
+     * initializes the array list
+     * runs the add items method
+     * and sets the custom adapter
      * @param inflater
      * @param container
      * @param savedInstanceState
-     * @return
+     * @return view
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_beverages, container, false);
+        View view = inflater.inflate(R.layout.fragment_bear_info, container, false);
 
-        //initializing the fragment manager and fragment transaction
-        fm = getActivity().getSupportFragmentManager();
-        ft = fm.beginTransaction();
+        //initializing a new arraylist
+        infoList = new ArrayList<>();
+        //run this method to add items to the arraylist
+        addItems();
 
-        //replace the frame layout with each drink item
-        ft.replace(R.id.AppleJuiceLayout, ViewPagerContentFragment.newInstance("Juice", 2, 10, "a juice box ", 10, "beverage"));
-        ft.commit();
-        //make a new transaction after you commit a previous one
-        ft = fm.beginTransaction();
-
-        ft.replace(R.id.DeerUrineLayout, ViewPagerContentFragment.newInstance("Deer Urine", 2, 5, "A bottle of Deer urine you harvested from a dead deer's bladder. It is slightly fermented.", 5, "beverage"));
-        ft.commit();
-        ft = fm.beginTransaction();
-
-        ft.replace(R.id.MoonshineLayout, ViewPagerContentFragment.newInstance("Moonshine", 2, 10, "It looks like moonshine", 10, "beverage"));
-        ft.commit();
-        ft = fm.beginTransaction();
-
-        ft.replace(R.id.MountainDewLayout, ViewPagerContentFragment.newInstance("Mountain Dew", 4, 10, "Mountain Dew baby!", 3, "beverage"));
-        ft.commit();
-        ft = fm.beginTransaction();
-
-        ft.replace(R.id.RiverWaterLayout, ViewPagerContentFragment.newInstance("River Water", 2, 5, "Some water you found in a river.", 10, "beverage"));
-        ft.commit();
-
+        bearInfoListView = (ListView) view.findViewById(R.id.InfoListView);
+        CustomAdapter c = new CustomAdapter(getContext(), infoList);
+        bearInfoListView.setAdapter(c);
         return view;
+    }
+
+    /**
+     * this adds the corresponding title and description
+     * too the array list so that they can be added to the listview
+     */
+    private void addItems()
+    {
+        //each title will be added into the array list, along with the corresponding description
+        String[] titles = {"Bear Damage",
+                "Bear Size",
+                "Bear Scaryness",
+                "Bear Mortality Rate",
+                "Bear Family"};
+        String[] description = {"Too much for you to handle",
+                "Bigger than a bear that was exposed to radiation",
+                "You will literally soil your pants when you see this bear",
+                "The bear doesnt die... but you do",
+                "Some say the bear has family... lets hope it doesnt"};
+
+        //iterate through the string arrays adding at an increased index
+        for(int i = 0; i < titles.length; i++)
+        {
+            infoList.add(i,new BearInfo(titles[i], description[i]));
+        }
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -147,4 +164,33 @@ public class BeveragesFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+    /**
+     * this custom adapter gets all the items stored in the info arraylist and
+     * gets the corresponding title and description and sets it to the fragment
+     * and adds it to the listview
+     */
+    public class CustomAdapter extends ArrayAdapter<BearInfo> {
+
+
+        public CustomAdapter(Context context, ArrayList<BearInfo> infoArrayList) {
+            super(context, 0 , infoArrayList);
+        }
+
+        public View getView(int position, View convertView, ViewGroup parent)
+        {
+            BearInfo info = getItem(position);
+
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.bear_info_content, parent, false);
+
+            TextView title = (TextView) convertView.findViewById(R.id.TitleLabel);
+            title.setText(info.getTitle());
+
+            TextView description = (TextView) convertView.findViewById(R.id.DescriptionLabel);
+            description.setText(info.getDescription());
+
+            return convertView;
+        }
+    }
+
 }

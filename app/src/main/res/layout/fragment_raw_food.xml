@@ -1,13 +1,111 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="comsorrgrif.github.steakberriesclub.RawFoodFragment">
+    tools:context="comsorrgrif.github.steakberriesclub.RawFoodFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:id="@+id/VenisonPager"
+            android:layout_weight="1"
+            android:layout_height="@dimen/PagerItemHeight">
 
-</FrameLayout>
+        </android.support.v4.view.ViewPager>
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/BerriesPager"
+            android:layout_height="@dimen/PagerItemHeight">
+
+        </android.support.v4.view.ViewPager>
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/GarbagePager"
+            android:layout_height="@dimen/PagerItemHeight">
+
+        </android.support.v4.view.ViewPager>
+
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/NoodlePager"
+            android:layout_height="@dimen/PagerItemHeight">
+
+        </android.support.v4.view.ViewPager>
+
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/ApplePager"
+            android:layout_height="@dimen/PagerItemHeight">
+
+        </android.support.v4.view.ViewPager>
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/BeefPager"
+            android:layout_height="@dimen/PagerItemHeight">
+
+        </android.support.v4.view.ViewPager>
+
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/EggPager"
+            android:layout_height="@dimen/PagerItemHeight">
+
+        </android.support.v4.view.ViewPager>
+
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/MomsSpaghettiPager"
+            android:layout_height="@dimen/PagerItemHeight">
+
+        </android.support.v4.view.ViewPager>
+
+
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/RawBaconPager"
+            android:layout_height="@dimen/PagerItemHeight">
+
+        </android.support.v4.view.ViewPager>
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/FrozenTVDinnerPager"
+            android:layout_height="@dimen/PagerItemHeight">
+
+        </android.support.v4.view.ViewPager>
+
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/RoadkillPager"
+            android:layout_height="@dimen/PagerItemHeight">
+
+        </android.support.v4.view.ViewPager>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

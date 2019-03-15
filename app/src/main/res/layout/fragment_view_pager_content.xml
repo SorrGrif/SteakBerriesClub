@@ -1,0 +1,204 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/PagerItemHeight"
+    tools:context="comsorrgrif.github.steakberriesclub.ViewPagerContentFragment"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@drawable/topandbottomborder"
+    android:padding="5dp">
+
+    <!-- This is used for each view for the food fragment -->
+
+    <!-- This is the title for the food in question -->
+    <TextView
+        android:text="@string/PlaceholderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Food"
+        android:fontFamily="sans-serif"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:textColor="@color/fontColor" />
+
+    <!-- This is used to put the description and stats next to each other -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/BackgroudLayout">
+
+        <!-- this is for the description to have it be displayed up and down -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:text="@string/DescriptionLabelValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/DescriptionLabel"
+                android:textStyle="normal|bold"
+                android:textColor="@color/fontColor" />
+
+            <TextView
+                android:text="@string/PlaceholderText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Description"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:textSize="14sp"
+                android:textColor="@color/fontColor" />
+
+        </LinearLayout>
+
+        <!-- This is used for the stats so it can be displayed up and downwards -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="@string/NameLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/NameLabel"
+                        android:fontFamily="sans-serif"
+                        android:textSize="14sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/fontColor" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="@string/ValueLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ValueLabel"
+                        android:fontFamily="sans-serif"
+                        android:textSize="14sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/fontColor" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="@string/RegenValLable"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/RegenValueLabel"
+                        android:fontFamily="sans-serif"
+                        android:textSize="14sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/fontColor" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="@string/WeightLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/WeightLabel"
+                        android:fontFamily="sans-serif"
+                        android:textSize="14sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/fontColor" />
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:text="@string/PlaceholderText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/NameValue"
+                        android:fontFamily="sans-serif"
+                        android:textSize="14sp"
+                        android:textColor="@color/fontColor" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:text="@string/PlaceholderText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ValueValue"
+                        android:fontFamily="sans-serif"
+                        android:textSize="14sp"
+                        android:textColor="@color/fontColor" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:text="@string/PlaceholderText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/RegenValueValue"
+                        android:fontFamily="sans-serif"
+                        android:textSize="14sp"
+                        android:textColor="@color/fontColor" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:text="@string/PlaceholderText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/WeightValue"
+                        android:fontFamily="sans-serif"
+                        android:textSize="14sp"
+                        android:textColor="@color/fontColor" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
